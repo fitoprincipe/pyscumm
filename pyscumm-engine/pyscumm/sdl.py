@@ -1,5 +1,6 @@
-import pygame, euclid
-from euclid import Vector2
+import pygame
+from . import euclid
+from .euclid import Vector2
 
 
 class Drawable(object):

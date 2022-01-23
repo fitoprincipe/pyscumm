@@ -20,9 +20,9 @@
 @since: 18/02/2007
 """
 
-from euclid import Vector2
-from base import debugger
-from sdl import Drawable
+from .euclid import Vector2
+from .base import debugger
+from .sdl import Drawable
 import pygame.mouse, time
 
 

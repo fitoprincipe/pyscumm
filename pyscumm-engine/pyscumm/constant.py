@@ -5,10 +5,10 @@ from pygame.constants import KMOD_ALT, KMOD_CAPS, KMOD_CTRL, KMOD_LALT, KMOD_LCT
                             K_BACKSLASH, K_BACKSPACE, K_BREAK, K_CAPSLOCK, K_CARET, K_CLEAR, K_COLON, \
                             K_COMMA, K_DELETE, K_DOLLAR, K_DOWN, K_END, K_EQUALS, K_ESCAPE, K_EURO, \
                             K_EXCLAIM, K_F1, K_F10, K_F11, K_F12, K_F13, K_F14, K_F15, K_F2, K_F3, K_F4, \
-                            K_F5, K_F6, K_F7, K_F8, K_F9, K_FIRST, K_GREATER, K_HASH, K_HELP, K_HOME, \
+                            K_F5, K_F6, K_F7, K_F8, K_F9, K_GREATER, K_HASH, K_HELP, K_HOME, \
                             K_INSERT, K_KP0, K_KP1, K_KP2, K_KP3, K_KP4, K_KP5, K_KP6, K_KP7, K_KP8, \
                             K_KP9, K_KP_DIVIDE, K_KP_ENTER, K_KP_EQUALS, K_KP_MINUS, K_KP_MULTIPLY, \
-                            K_KP_PERIOD, K_KP_PLUS, K_LALT, K_LAST, K_LCTRL, K_LEFT, K_LEFTBRACKET, \
+                            K_KP_PERIOD, K_KP_PLUS, K_LALT, K_LCTRL, K_LEFT, K_LEFTBRACKET, \
                             K_LEFTPAREN, K_LESS, K_LMETA, K_LSHIFT, K_LSUPER, K_MENU, K_MINUS, K_MODE, \
                             K_NUMLOCK, K_PAGEDOWN, K_PAGEUP, K_PAUSE, K_PERIOD, K_PLUS, K_POWER, \
                             K_PRINT, K_QUESTION, K_QUOTE, K_QUOTEDBL, K_RALT, K_RCTRL, K_RETURN, K_RIGHT, \
@@ -24,3 +24,5 @@ KEY_DOWN = 4
 KEY_UP = 5
 DRAG_START = 6
 DRAG_END = 7
+
+# K_FIRST, K_LAST

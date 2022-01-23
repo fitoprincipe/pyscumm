@@ -21,11 +21,11 @@
 """
 
 
-from base import State
-from engine import engine
+from .base import State
+from .engine import engine
 
 import pygame
-from euclid import Vector2
+from .euclid import Vector2
 
 
 
@@ -58,7 +58,7 @@ class Room(State, object):
         pygame.display.get_surface().blit(self.background, -self.camera.position)
         # Draw objects
         # THIS MUST ORDER BY Z PLANE !!!
-        obj_sorted = self._container.values()
+        obj_sorted = list(self._container.values())
         obj_sorted.sort(key=lambda d: d.position.z)
         for obj in obj_sorted:
             obj.update()
@@ -79,7 +79,7 @@ class Camera(object):
         return self._position
 
     def _set_position(self, p):
-        print 'setting pos camera', p
+        print('setting pos camera', p)
         self._position = Vector2(*p)
 
     position = property(_get_position, _set_position)

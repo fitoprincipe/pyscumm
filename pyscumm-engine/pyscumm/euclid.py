@@ -133,7 +133,7 @@ class Vector2:
             return tuple([(self.x, self.y)['xy'.index(c)] \
                           for c in name])
         except ValueError:
-            raise AttributeError, name
+            raise AttributeError
 
     if _enable_swizzle_set:
         # This has detrimental performance on ordinary setattr as well
@@ -148,7 +148,7 @@ class Vector2:
                         l['xy'.index(c)] = v
                     self.x, self.y = l
                 except ValueError:
-                    raise AttributeError, name
+                    raise AttributeError
 
     def __add__(self, other):
         if isinstance(other, Vector2):
@@ -333,7 +333,7 @@ class Vector3:
             return tuple([(self.x, self.y, self.z)['xyz'.index(c)] \
                           for c in name])
         except ValueError:
-            raise AttributeError, name
+            raise AttributeError
 
     if _enable_swizzle_set:
         # This has detrimental performance on ordinary setattr as well
@@ -348,7 +348,7 @@ class Vector3:
                         l['xyz'.index(c)] = v
                     self.x, self.y, self.z = l
                 except ValueError:
-                    raise AttributeError, name
+                    raise AttributeError
 
 
     def __add__(self, other):
@@ -1297,12 +1297,12 @@ class Quaternion:
 
 class Geometry:
     def _connect_unimplemented(self, other):
-        raise AttributeError, 'Cannot connect %s to %s' % \
-            (self.__class__, other.__class__)
+        print('Cannot connect %s to %s' % (self.__class__, other.__class__))
+        raise AttributeError
 
     def _intersect_unimplemented(self, other):
-        raise AttributeError, 'Cannot intersect %s and %s' % \
-            (self.__class__, other.__class__)
+        print('Cannot intersect %s and %s' % (self.__class__, other.__class__))
+        raise AttributeError
 
     _intersect_point2 = _intersect_unimplemented
     _intersect_line2 = _intersect_unimplemented
@@ -1478,18 +1478,19 @@ class Line2(Geometry):
                 self.p = args[0].copy()
                 self.v = args[1].copy()
             else:
-                raise AttributeError, '%r' % (args,)
+                raise AttributeError
         elif len(args) == 1:
             if isinstance(args[0], Line2):
                 self.p = args[0].p.copy()
                 self.v = args[0].v.copy()
             else:
-                raise AttributeError, '%r' % (args,)
+                raise AttributeError
         else:
-            raise AttributeError, '%r' % (args,)
+            raise AttributeError
         
         if not self.v:
-            raise AttributeError, 'Line has zero-length vector'
+            print('Line has zero-length vector')
+            raise AttributeError
 
     def __copy__(self):
         return self.__class__(self.p, self.v)
@@ -1826,15 +1827,15 @@ class Line3:
                 self.p = args[0].copy()
                 self.v = args[1].copy()
             else:
-                raise AttributeError, '%r' % (args,)
+                raise AttributeError
         elif len(args) == 1:
             if isinstance(args[0], Line3):
                 self.p = args[0].p.copy()
                 self.v = args[0].v.copy()
             else:
-                raise AttributeError, '%r' % (args,)
+                raise AttributeError
         else:
-            raise AttributeError, '%r' % (args,)
+            raise AttributeError
         
         # XXX This is annoying.
         #if not self.v:
@@ -1986,13 +1987,14 @@ class Plane:
                 self.n = args[0].normalized()
                 self.k = args[1]
             else:
-                raise AttributeError, '%r' % (args,)
+                raise AttributeError
 
         else:
-            raise AttributeError, '%r' % (args,)
+            raise AttributeError
         
         if not self.n:
-            raise AttributeError, 'Points on plane are colinear'
+            print('Points on plane are colinear')
+            raise AttributeError
 
     def __copy__(self):
         return self.__class__(self.n, self.k)

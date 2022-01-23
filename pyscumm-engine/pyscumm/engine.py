@@ -20,9 +20,9 @@
 @since: 18/02/2007
 """
 
-from base import StateMachine, StopEngine, ChangeRoom, debugger
-from driver import Mouse, Display, Clock
-from constant import MOUSE_MOTION, DOUBLE_CLICK, SINGLE_CLICK, KEY_DOWN, KEY_UP, DRAG_START, DRAG_END
+from .base import StateMachine, StopEngine, ChangeRoom, debugger
+from .driver import Mouse, Display, Clock
+from .constant import MOUSE_MOTION, DOUBLE_CLICK, SINGLE_CLICK, KEY_DOWN, KEY_UP, DRAG_START, DRAG_END
 
 import pygame.time
 import pygame.event
@@ -84,7 +84,7 @@ class Engine(StateMachine):
                 self.mouse.update()
                 self.mouse.draw()
                 self.display.flip()
-            except ChangeRoom, e:
+            except ChangeRoom:
                 debugger.info("ChangeRoom exception raised, changing room to %s" % e.__class__.__name__)
                 self.room = e
             except StopEngine:

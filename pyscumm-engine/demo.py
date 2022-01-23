@@ -16,7 +16,7 @@
 #    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 import pyscumm, pygame
-print dir(pyscumm)
+print(dir(pyscumm))
 
 
 class PosterItem(pyscumm.Item):
@@ -47,7 +47,7 @@ class BeachRoom(pyscumm.Room):
 
     def update(self):
         #for d in self.container:
-        #    print d.position.z
+        #    print(d.position.z
         pass
 
     def on_event(self, e):
@@ -57,7 +57,7 @@ class BeachRoom(pyscumm.Room):
             elif e['key'] == pyscumm.K_LEFT:
                 self.camera.position.x -= 20
             elif e['key'] == pyscumm.K_F12:
-                print pyscumm.engine.clock.fps
+                print(pyscumm.engine.clock.fps)
 
 # Create a Engine, and run the Playa room
 pyscumm.engine.display.title = 'PySCUMM Demo Adventure'

@@ -21,7 +21,7 @@
 @since: 20/11/2006
 """
 
-from sdl import Drawable
+from .sdl import Drawable
 import time
 import pygame
 
@@ -32,7 +32,7 @@ class ResourceLoader:
         self.cache = {}
 
     def load(self, filename):
-        if not self.cache.has_key(filename):
+        if not filename in self.cache:
             self.cache[filename] = pygame.image.load(filename).convert_alpha()
         return self.cache[filename]
 
@@ -107,7 +107,7 @@ class Debugger:
         @type state: String
         """
         if self.console:
-            print time.strftime('%H:%M:%S:')," warning : %s" % message
+            print(time.strftime('%H:%M:%S:')," warning : %s" % message)
 
     def info(self, message):
         """
@@ -116,7 +116,7 @@ class Debugger:
         @type state: String
         """
         if self.console:
-            print time.strftime('%H:%M:%S:')," info : %s" % message
+            print(time.strftime('%H:%M:%S:')," info : %s" % message)
 
     def error(self, message):
         """
@@ -125,7 +125,7 @@ class Debugger:
         @type state: String
         """
         if self.console:
-            print time.strftime('%H:%M:%S:')," error : %s" % message
+            print(time.strftime('%H:%M:%S:')," error : %s" % message)
 
 
 debugger=Debugger()

@@ -1,7 +1,7 @@
-from sdl import Drawable
-from base import debugger
-from engine import engine
-from euclid import Vector3
+from .sdl import Drawable
+from .base import debugger
+from .engine import engine
+from .euclid import Vector3
 
 
 class BaseObject(object):
